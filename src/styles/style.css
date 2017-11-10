@@ -1,0 +1,63 @@
+body {
+  background-color: rgb(39, 38, 38);
+  margin: 0;
+  padding: 0;
+  font-family: Calibri, sans-serif;
+  text-align: center;
+}
+
+.header-container {
+  background-color: rgb(101, 99, 180);
+  margin: 0;
+  padding: 0;
+  line-height: 1.25;
+  font-size: 3em;
+  color: white;
+}
+
+.header-container p {
+  margin: 0;
+  padding: 0.5em;
+}
+
+.header-container .rgb {
+  font-weight: bold;
+}
+
+.newgame-container {
+  background-color: white;
+  color: rgb(101, 99, 180);
+  padding: 0.3em;
+}
+
+.newgame-container p {
+  display: inline-block;
+  margin: 0;
+}
+
+.newgame-container .newgame {
+  display: inline;
+  padding-right: 10em;
+}
+
+.newgame-container .difficulty {
+  display: inline;
+}
+
+.newgame-container .difficulty p {
+  padding-left: 1em;
+}
+
+.color-container {
+  height: 4em;
+  width: 4em;
+  margin: 2em 1em;
+  padding: 3em;
+  display: inline-block;
+  border-radius: 1em;
+}
+
+.active {
+  color: white;
+  background-color: rgb(101, 99, 180);
+}
