@@ -40,15 +40,24 @@ body {
   padding-right: 10em;
 }
 
+.newgame-container .newgame p {
+  cursor: pointer;
+}
+
 .newgame-container .difficulty {
+  cursor: pointer;
   display: inline;
 }
 
 .newgame-container .difficulty p {
-  padding-left: 1em;
+}
+
+.allcolors-container {
+  margin: 3em;
 }
 
 .color-container {
+  cursor: pointer;
   height: 4em;
   width: 4em;
   margin: 2em 1em;

@@ -13,12 +13,28 @@ const colors = [
 ];
 
 class AppContainer extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      guessColor: "rgb(255, 255, 0)",
+      newgame: false,
+      difficulty: "easy",
+      changeDifficulty: difficulty => {
+        this.setState({
+          difficulty
+        });
+      }
+    };
+  }
   render() {
+    const { changeDifficulty, difficulty, guessColor } = this.state;
+    console.log("guessColor", guessColor);
     return (
       <div>
-        <Header />
-        <NewGame />
-        <Colors colors={colors} />
+        <Header guessColor={guessColor} />
+        <NewGame changeDifficulty={changeDifficulty} difficulty={difficulty} />
+        <Colors colors={colors} guessColor={guessColor} />
       </div>
     );
   }

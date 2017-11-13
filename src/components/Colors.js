@@ -1,15 +1,15 @@
 import React from "react";
 import Color from "./Color";
 
-const Colors = ({ colors }) => {
+const Colors = ({ colors, guessColor }) => {
   return (
-    <div>
-      <Color color={colors[0]} />
-      <Color color={colors[1]} />
-      <Color color={colors[2]} />
-      <Color color={colors[3]} />
-      <Color color={colors[4]} />
-      <Color color={colors[5]} />
+    <div className="allcolors-container">
+      <Color color={colors[0]} guessColor={guessColor} />
+      <Color color={colors[1]} guessColor={guessColor} />
+      <Color color={colors[2]} guessColor={guessColor} />
+      <Color color={colors[3]} guessColor={guessColor} />
+      <Color color={colors[4]} guessColor={guessColor} />
+      <Color color={colors[5]} guessColor={guessColor} />
     </div>
   );
 };

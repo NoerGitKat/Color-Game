@@ -1,14 +1,32 @@
 import React from "react";
 
-const NewGame = () => {
+const NewGame = ({ difficulty, changeDifficulty }) => {
   return (
     <div className="newgame-container">
-      <div className="newgame">
+      <div onClick={() => alert("new game started!")} className="newgame">
         <p>NEW COLORS</p>
       </div>
       <div className="difficulty">
-        <p>EASY</p>
-        <p>HARD</p>
+        <p
+          onClick={() => {
+            alert("whaat, you can't even handle some colors?");
+            console.log("difficulty", difficulty);
+            changeDifficulty("easy");
+          }}
+          className={difficulty === "easy" ? "active" : ""}
+        >
+          EASY
+        </p>
+        <p
+          onClick={() => {
+            alert("yeahhh, that's more like it!");
+            console.log("difficulty", difficulty);
+            changeDifficulty("hard");
+          }}
+          className={difficulty === "hard" ? "active" : ""}
+        >
+          HARD
+        </p>
       </div>
     </div>
   );

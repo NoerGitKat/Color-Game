@@ -1,10 +1,10 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ guessColor }) => {
   return (
     <div className="header-container">
       <p>
-        THE GREAT <br /> <span className="rgb">{"RGB(1, 200, 30)"}</span>
+        THE GREAT <br /> <span className="rgb">{guessColor}</span>
         <br />
         GUESSING GAME
       </p>
