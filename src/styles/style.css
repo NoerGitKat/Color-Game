@@ -18,55 +18,99 @@ body {
 .header-container p {
   margin: 0;
   padding: 0.5em;
+  transform: translateY(-200px);
+  animation: slideDownHeader 3s ease forwards;
+}
+
+@keyframes slideDownHeader {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes colorsAppear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .header-container .rgb {
   font-weight: bold;
-}
-
-.newgame-container {
   background-color: white;
   color: rgb(101, 99, 180);
-  padding: 0.3em;
 }
 
-.newgame-container p {
+.bar-container {
+  background-color: white;
+  color: rgb(101, 99, 180);
+}
+
+.bar-container p {
   display: inline-block;
   margin: 0;
 }
 
-.newgame-container .newgame {
-  display: inline;
-  padding-right: 10em;
+.bar-container .newgame,
+.bar-container .difficulty,
+.bar-container .message-container {
+  display: inline-block;
 }
 
-.newgame-container .newgame p {
+.bar-container .message-container {
+  margin: 0 10em;
+}
+
+.bar-container .newgame p {
+  cursor: pointer;
+  padding: 0.3em;
+}
+
+.bar-container .difficulty {
+  display: inline-block;
   cursor: pointer;
 }
 
-.newgame-container .difficulty {
-  cursor: pointer;
-  display: inline;
+.bar-container .difficulty p {
+  margin: 0 0.5em;
 }
 
-.newgame-container .difficulty p {
+#message {
+  display: inline-block;
+  padding: 0.3em;
 }
 
 .allcolors-container {
-  margin: 3em;
+  margin: 6.5em 0 0;
 }
 
 .color-container {
   cursor: pointer;
   height: 4em;
   width: 4em;
-  margin: 2em 1em;
+  position: relative;
+  margin: 2em 1.5em;
   padding: 3em;
   display: inline-block;
   border-radius: 1em;
+
+  animation: colorsAppear 3s ease;
+  transition: transform 0.4s ease;
+}
+
+.color-container:hover {
+  transform: rotate(45deg);
 }
 
 .active {
   color: white;
   background-color: rgb(101, 99, 180);
+  padding: 0.3em;
 }

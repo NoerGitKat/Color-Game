@@ -1,17 +1,20 @@
 import React from "react";
 
-const Color = ({ color, guessColor }) => {
+const Color = ({ color, guessColor, changeMessage }) => {
   const thisColor = {
     backgroundColor: color
   };
   const { backgroundColor } = thisColor;
+
   return (
     <div
       onClick={() => {
         alert(`The color is ${backgroundColor}`);
-        backgroundColor === guessColor
-          ? alert("You chose correctly!")
-          : alert("Are you color blind???");
+        if (backgroundColor === guessColor) {
+          changeMessage("You nailed it amigo!");
+        } else {
+          changeMessage("Are you color blind???");
+        }
       }}
       className="color-container"
       style={thisColor}

@@ -1,16 +1,18 @@
 import React from "react";
 
-const NewGame = ({ difficulty, changeDifficulty }) => {
+const Bar = ({ difficulty, changeDifficulty, message }) => {
   return (
-    <div className="newgame-container">
+    <div className="bar-container">
       <div onClick={() => alert("new game started!")} className="newgame">
         <p>NEW COLORS</p>
+      </div>
+      <div className="message-container">
+        <span id="message">{message}</span>
       </div>
       <div className="difficulty">
         <p
           onClick={() => {
             alert("whaat, you can't even handle some colors?");
-            console.log("difficulty", difficulty);
             changeDifficulty("easy");
           }}
           className={difficulty === "easy" ? "active" : ""}
@@ -20,7 +22,6 @@ const NewGame = ({ difficulty, changeDifficulty }) => {
         <p
           onClick={() => {
             alert("yeahhh, that's more like it!");
-            console.log("difficulty", difficulty);
             changeDifficulty("hard");
           }}
           className={difficulty === "hard" ? "active" : ""}
@@ -32,4 +33,4 @@ const NewGame = ({ difficulty, changeDifficulty }) => {
   );
 };
 
-export default NewGame;
+export default Bar;
