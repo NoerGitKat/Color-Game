@@ -4,8 +4,43 @@ import Bar from "../components/Bar";
 import Colors from "../components/Colors";
 
 class AppContainer extends Component {
+  
+
   constructor(props) {
     super(props);
+
+    const randomColor = `#${Math.random()
+      .toString(16)
+      .slice(2, 8)
+      .toUpperCase()}`;
+
+    const colors = [
+      randomColor,
+      "rgb(255, 255, 0)",
+      "rgb(255, 0, 255)",
+      "rgb(0, 255, 255)",
+      "rgb(0, 255, 0)",
+      "rgb(0, 0, 255)"
+    ];
+
+    let colorArray = [randomColor];
+    for (var i = 0; i < 6; i++) {
+      colorArray.push(
+        `#${Math.random()
+          .toString(16)
+          .slice(2, 8)
+          .toUpperCase()}`
+      );
+    }
+
+    const correctColor = [
+      randomColor,
+      randomColor,
+      randomColor,
+      randomColor,
+      randomColor,
+      randomColor
+    ];
 
     this.state = {
       message: "",
@@ -14,15 +49,18 @@ class AppContainer extends Component {
           message
         });
       },
-      guessColor: `#${Math.random()
-        .toString(16)
-        .slice(2, 8)
-        .toUpperCase()}`,
+      guessColor: randomColor,
       newgame: false,
       difficulty: "easy",
+      colors: colors,
       changeDifficulty: difficulty => {
         this.setState({
           difficulty
+        });
+      },
+      correctColorsArray: () => {
+        this.setState({
+          colors: correctColor
         });
       }
     };
@@ -33,17 +71,10 @@ class AppContainer extends Component {
       difficulty,
       guessColor,
       message,
-      changeMessage
+      changeMessage,
+      colors,
+      correctColorsArray
     } = this.state;
-
-    const colors = [
-      guessColor,
-      "rgb(255, 255, 0)",
-      "rgb(255, 0, 255)",
-      "rgb(0, 255, 255)",
-      "rgb(0, 255, 0)",
-      "rgb(0, 0, 255)"
-    ];
 
     console.log("guessColor", guessColor);
     return (
@@ -55,6 +86,7 @@ class AppContainer extends Component {
           difficulty={difficulty}
         />
         <Colors
+          correctColorsArray={correctColorsArray}
           colors={colors}
           guessColor={guessColor}
           changeMessage={changeMessage}

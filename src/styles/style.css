@@ -22,6 +22,15 @@ body {
   animation: slideDownHeader 3s ease forwards;
 }
 
+@keyframes scaleMessage {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
 @keyframes slideDownHeader {
   0% {
     transform: translateY(-200px);
@@ -51,6 +60,7 @@ body {
 .bar-container {
   background-color: white;
   color: rgb(101, 99, 180);
+  /* overflow: hidden; */
 }
 
 .bar-container p {
@@ -85,6 +95,7 @@ body {
 #message {
   display: inline-block;
   padding: 0.3em;
+  animation: scaleMessage 1.5s linear infinite alternate;
 }
 
 .allcolors-container {

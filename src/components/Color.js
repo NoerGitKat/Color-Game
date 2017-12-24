@@ -1,19 +1,26 @@
 import React from "react";
 
-const Color = ({ color, guessColor, changeMessage }) => {
-  const thisColor = {
+const Color = ({
+  correctColorsArray,
+  colorsArray,
+  color,
+  guessColor,
+  changeMessage
+}) => {
+  let thisColor = {
     backgroundColor: color
   };
-  const { backgroundColor } = thisColor;
+  let { backgroundColor } = thisColor;
 
   return (
     <div
-      onClick={() => {
-        alert(`The color is ${backgroundColor}`);
+      onClick={event => {
         if (backgroundColor === guessColor) {
           changeMessage("You nailed it amigo!");
+          correctColorsArray();
         } else {
           changeMessage("Are you color blind???");
+          console.log("event", event);
         }
       }}
       className="color-container"
