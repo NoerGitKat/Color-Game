@@ -1,9 +1,24 @@
 import React from "react";
 
-const Bar = ({ difficulty, changeDifficulty, message }) => {
+const Bar = ({
+  newColorsEasy,
+  newColorsHard,
+  difficulty,
+  correctColorsArray,
+  changeDifficulty,
+  message
+}) => {
   return (
     <div className="bar-container">
-      <div onClick={() => alert("new game started!")} className="newgame">
+      <div
+        onClick={() => {
+          alert("new game started!");
+          {
+            difficulty === "easy" ? newColorsEasy() : newColorsHard();
+          }
+        }}
+        className="newgame"
+      >
         <p>NEW COLORS</p>
       </div>
       <div className="message-container">
@@ -14,6 +29,7 @@ const Bar = ({ difficulty, changeDifficulty, message }) => {
           onClick={() => {
             alert("whaat, you can't even handle some colors?");
             changeDifficulty("easy");
+            newColorsEasy();
           }}
           className={difficulty === "easy" ? "active" : ""}
         >
@@ -23,6 +39,7 @@ const Bar = ({ difficulty, changeDifficulty, message }) => {
           onClick={() => {
             alert("yeahhh, that's more like it!");
             changeDifficulty("hard");
+            newColorsHard();
           }}
           className={difficulty === "hard" ? "active" : ""}
         >

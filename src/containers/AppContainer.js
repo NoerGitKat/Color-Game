@@ -2,17 +2,13 @@ import React, { Component } from "react";
 import Header from "../components/Header";
 import Bar from "../components/Bar";
 import Colors from "../components/Colors";
+import { shuffleArray, generateColor } from "./../utils";
 
 class AppContainer extends Component {
-  
-
   constructor(props) {
     super(props);
 
-    const randomColor = `#${Math.random()
-      .toString(16)
-      .slice(2, 8)
-      .toUpperCase()}`;
+    const randomColor = generateColor();
 
     const colors = [
       randomColor,
@@ -23,14 +19,11 @@ class AppContainer extends Component {
       "rgb(0, 0, 255)"
     ];
 
+    shuffleArray(colors);
+
     let colorArray = [randomColor];
-    for (var i = 0; i < 6; i++) {
-      colorArray.push(
-        `#${Math.random()
-          .toString(16)
-          .slice(2, 8)
-          .toUpperCase()}`
-      );
+    for (var i = 0; i < 5; i++) {
+      colorArray.push(generateColor());
     }
 
     const correctColor = [
@@ -62,6 +55,18 @@ class AppContainer extends Component {
         this.setState({
           colors: correctColor
         });
+      },
+      newColorsEasy: () => {
+        this.setState({
+          colors: colors,
+          message: ""
+        });
+      },
+      newColorsHard: () => {
+        this.setState({
+          colors: colorArray,
+          message: ""
+        });
       }
     };
   }
@@ -73,7 +78,9 @@ class AppContainer extends Component {
       message,
       changeMessage,
       colors,
-      correctColorsArray
+      correctColorsArray,
+      newColorsHard,
+      newColorsEasy
     } = this.state;
 
     console.log("guessColor", guessColor);
@@ -84,6 +91,9 @@ class AppContainer extends Component {
           message={message}
           changeDifficulty={changeDifficulty}
           difficulty={difficulty}
+          correctColorsArray={correctColorsArray}
+          newColorsHard={newColorsHard}
+          newColorsEasy={newColorsEasy}
         />
         <Colors
           correctColorsArray={correctColorsArray}
@@ -93,6 +103,10 @@ class AppContainer extends Component {
         />
       </div>
     );
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const randomColor = generateColor();
   }
 }
 
